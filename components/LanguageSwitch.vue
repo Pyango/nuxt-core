@@ -13,7 +13,7 @@ watch(currentLocale, () => {
 <template>
   <SelectRoot v-model="currentLocale">
     <SelectTrigger>
-      <button class="px-2 py-1 border flex items-center gap-2 rounded-full bg-white">
+      <button class="px-2 py-1 border flex items-center gap-2 rounded-full bg-white text-gray-800">
           <IconDe v-if="locale === 'de'" filled />
           <IconEn v-if="locale === 'en'" filled />
           {{ locale === 'en' ? 'English' : 'Deutsch' }}
