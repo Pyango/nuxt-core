@@ -32,7 +32,6 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     locales: [
       { code: 'en', file: 'en.json' },
-      { code: 'de', file: 'de.json' }
     ],
   },
   svgo: {
