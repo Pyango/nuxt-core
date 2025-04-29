@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     '@vueuse/nuxt',
     '@nuxtjs/device',
+    '@nuxt/fonts',
   ],
   tailwindcss: {
     cssPath: join(currentDir, './assets/css/tailwind.css'),
