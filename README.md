@@ -71,3 +71,19 @@ pnpm preview
 ```
 
 Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Included Components and Plugins
+
+### SimpleBar
+This layer includes [simplebar-vue](https://github.com/Grsmto/simplebar/tree/master/packages/simplebar-vue) for custom scrollbars.
+
+Usage:
+```vue
+<template>
+  <SimpleBar>
+    <!-- Your scrollable content here -->
+  </SimpleBar>
+</template>
+```
+
+The component is globally registered, so you don't need to import it in your components.
