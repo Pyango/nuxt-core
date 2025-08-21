@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
@@ -6,18 +5,16 @@ export default defineNuxtConfig({
       baseUrl: '',
     },
   },
-  ignore: [
-    process.env.ENVIROMENT === 'production' ? 'pages/layers/*' : '',
-  ],
   modules: [
     'reka-ui/nuxt',
-    "@nuxtjs/tailwindcss",
     '@nuxtjs/i18n',
     'nuxt-svgo',
     '@nuxtjs/seo',
     '@vueuse/nuxt',
     '@nuxtjs/device',
     '@nuxt/fonts',
+    '@nuxt/scripts',
+    '@nuxt/image',
   ],
   i18n: {
     langDir: './lang',
