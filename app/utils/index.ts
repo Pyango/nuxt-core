@@ -1,10 +1,3 @@
-// This util is a compact number formatter (nice for showing likes, views, followers, etc.)
-// that always outputs in en-GB style with at most 1 decimal place. 1234 -> 1.2K
-export const { format: formatNumber } = Intl.NumberFormat('en-GB', {
-  notation: 'compact',
-  maximumFractionDigits: 1
-})
-
 export const getYouTubeId = (url: string) => {
   try {
     const u = new URL(url)
