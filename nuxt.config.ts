@@ -16,10 +16,6 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/image',
   ],
-  i18n: {
-    langDir: './lang',
-    defaultLocale: 'en',
-  },
   svgo: {
     componentPrefix: 'icon',
   },
