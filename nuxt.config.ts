@@ -19,9 +19,6 @@ export default defineNuxtConfig({
   i18n: {
     langDir: './lang',
     defaultLocale: 'en',
-    locales: [
-      { code: 'en', file: 'en.json' },
-    ],
   },
   svgo: {
     componentPrefix: 'icon',
