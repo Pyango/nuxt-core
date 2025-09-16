@@ -1,10 +1,5 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  runtimeConfig: {
-    public: {
-      baseUrl: '',
-    },
-  },
   modules: [
     'reka-ui/nuxt',
     '@nuxtjs/i18n',
@@ -16,6 +11,9 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/image',
   ],
+  seo: {
+    automaticDefaults: false
+  },
   svgo: {
     componentPrefix: 'icon',
   },
