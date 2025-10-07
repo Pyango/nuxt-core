@@ -1,6 +1,7 @@
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig();
   const localePath = useLocalePath();
+  const {toast} = useToast();
 
   let locale = 'en';
   // called right after a new locale has been set
@@ -13,18 +14,31 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   const api = $fetch.create({
     baseURL: BASE_URL,
-    onRequest({ request, options, error }) {
+    onRequest({ _request, options, _error }) {
       const CSRFToken = useCookie('csrftoken');
       if (CSRFToken?.value) {
         options.headers.set('X-CSRFToken', CSRFToken?.value);
       }
       options.headers.set('Accept-Language', locale);
     },
-    async onResponseError({ response }) {
+    async onResponseError({response, options, _error}) {
+      const skipError = (options as never)?.skipError;
       if (response.status === 401) {
         await nuxtApp.runWithContext(() => navigateTo(localePath('/login')));
-      } else {
-        // TODO: toast error messages
+        return;
+      }
+
+      if (!skipError) {
+        const message =
+          response._data?.message ||
+          response._data?.detail ||
+          `Error ${response.status}`;
+
+        toast({
+          title: 'Error',
+          description: message,
+          type: 'error',
+        });
       }
     },
   });

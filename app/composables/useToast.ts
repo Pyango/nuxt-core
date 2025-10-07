@@ -1,19 +1,18 @@
 export function useToast() {
     const showToast = useState('showToast', () => false);
-    const toastType = useState<'success' | 'error'>('toastType', () => 'success');
+    const toastType = useState<'success' | 'error' | 'warning' | 'info'>('toastType', () => 'success');
     const toastTitle = useState('toastTitle', () => '');
     const toastDescription = useState('toastDescription', () => '');
-    const timerRef = ref(0)
-
+    const timerRef = ref<ReturnType<typeof setTimeout> | null>(null);
     const toast = (
-        {title, description, type = 'success'}: {title: string; description: string; type?: 'success' | 'error'}
+        {title, description, type = 'success'}: {title: string; description: string; type?: 'success' | 'error' | 'warning' | 'info'}
     ) => {
       toastTitle.value = title;
       toastDescription.value = description;
       toastType.value = type;
       showToast.value = false
-      window.clearTimeout(timerRef.value)
-      timerRef.value = window.setTimeout(() => {
+      clearTimeout(timerRef.value ?? 0)
+      timerRef.value = setTimeout(() => {
         showToast.value = true
       }, 100)
     }
