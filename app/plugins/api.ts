@@ -10,10 +10,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     locale = newLocale;
   });
 
-  const BASE_URL = config.public.baseUrl;
+  const API_URL = config.public.apiUrl;
 
   const api = $fetch.create({
-    baseURL: BASE_URL,
+    baseURL: API_URL,
     onRequest({ _request, options, _error }) {
       const CSRFToken = useCookie('csrftoken');
       if (CSRFToken?.value) {
